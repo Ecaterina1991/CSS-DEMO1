@@ -1,3 +1,11 @@
+:root {
+  --white-text: #f5f0f0;
+  --dark-gray-text: #221f1f;
+  --light-gray: #979191;
+  --gray-text-title: #5a5656;
+  --normal-line-height: 1.4;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -10,13 +18,17 @@ html {
 }
 
 body {
+  max-width: 1100px;
+  margin: 0 auto;
+  max-height: 100vh;
   font-size: 1.1em;
   display: grid;
   grid-template:
-    "logo-text logo-text" 20vh
-    "nav nav" 5vh
+    "logo-text logo-text" calc(21vh + 3em)
+    "nav nav" calc(5vh + 5px)
     "main aside" auto
     / 3fr 1fr;
+  /* gap: 0.5em; */
 }
 
 .row {
@@ -29,16 +41,17 @@ body {
   grid-area: logo-text;
   background-color: gray;
   padding-left: calc(4% - 1.5em);
+  color: var(--white-text);
 }
 
 .nav {
   grid-area: nav;
-  background-color: rgb(151, 145, 145);
+  background-color: #979191;
 }
 
 .main {
   grid-area: main;
-  background-color: aqua;
+  background-color: var(--white-text);
 }
 
 .aside {
@@ -49,9 +62,113 @@ body {
 /* ?STILIZARE logo-text */
 
 .img-logo-wrapper {
-  padding-right: 1.5em;
+  padding-right: 2.5em;
 }
 
 .img-logo {
-  width: 70px;
+  width: 90%;
+}
+
+.text-wrapper {
+  width: calc(50% - 10px);
+}
+
+.text-wrapper > p:nth-child(1) {
+  font-size: 2em;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+}
+
+.text-wrapper > p:nth-child(2) {
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* ?STILIZARE nav */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.2em;
+}
+
+.nav > a {
+  text-decoration: none;
+  color: var(--white-text);
+  margin-left: 3.5em;
+}
+
+@media (max-width: 800px) {
+  .nav a {
+    margin-left: calc((100vw - 420px) / 4);
+  }
+
+  body {
+    background-color: red;
+  }
+}
+
+.nav > a:hover {
+  color: var(--dark-gray-text);
+}
+
+/*! Proprietatea de mai jos este adaugata complementar si poate fi starsa oricand, in ideea de a reproduce cat mai fidel imaginea model  */
+
+.nav > a:first-child {
+  color: var(--dark-gray-text);
+}
+
+/* ?STILIZARE main */
+
+.img-main {
+  object-fit: contain;
+  width: 100%;
+  padding: 0.7em;
+}
+
+.img-main-wrapper {
+  width: 80%;
+  background-color: var(--white-text);
+  margin: 2em;
+  box-shadow: 0 0 10px rgba(68, 64, 64, 0.164);
+}
+
+.titlu-img {
+  font-family: Arial, Helvetica, sans-serif;
+  color: gray;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.7em;
+  margin-left: 0.7em;
+}
+
+.img-main-text-wrapper {
+  margin-right: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.img-main-text-wrapper > h1 {
+  font-size: 1.5em;
+  color: var(--gray-text-title);
+}
+
+.img-main-text-wrapper > h2 {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: red;
+  text-indent: 0.1em;
+  margin-bottom: 1.2em;
+}
+
+.img-main-text-wrapper > p {
+  font-size: 1.2em;
+  line-height: var(--normal-line-height);
+  font-weight: 500;
+  color: var(--gray-text-title);
+  text-indent: 0.1em;
+  margin-bottom: 1.7em;
 }
