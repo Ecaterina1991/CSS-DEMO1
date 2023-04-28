@@ -1,0 +1,57 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  font-size: 1.1em;
+  display: grid;
+  grid-template:
+    "logo-text logo-text" 20vh
+    "nav nav" 5vh
+    "main aside" auto
+    / 3fr 1fr;
+}
+
+.row {
+  display: flex;
+  justify-content: row;
+  align-items: center;
+}
+
+.logo-text {
+  grid-area: logo-text;
+  background-color: gray;
+  padding-left: calc(4% - 1.5em);
+}
+
+.nav {
+  grid-area: nav;
+  background-color: rgb(151, 145, 145);
+}
+
+.main {
+  grid-area: main;
+  background-color: aqua;
+}
+
+.aside {
+  grid-area: aside;
+  background-color: aquamarine;
+}
+
+/* ?STILIZARE logo-text */
+
+.img-logo-wrapper {
+  padding-right: 1.5em;
+}
+
+.img-logo {
+  width: 70px;
+}
